@@ -1,0 +1,14 @@
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "~@nebular/theme/styles/global/breakpoints";
+@import "../../styles/themes";
+@include nb-install-component() {
+  ::ng-deep
+    nb-layout
+    .layout
+    .layout-container
+    .content
+    .columns
+    nb-layout-column {
+    padding: 0.5rem;
+  }
+}

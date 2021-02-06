@@ -1,0 +1,78 @@
+<div class="chi-tiet-container">
+  <div class="left-card">
+    <nb-card>
+      <nb-card-header>Danh sách thực đơn</nb-card-header>
+      <nb-card-body> <ngx-home></ngx-home></nb-card-body>
+    </nb-card>
+    <div class="div-button">
+      <button
+        nbButton
+        status="success"
+        class="buttontt"
+        (click)="onClickDaDat()"
+      >
+        Đã đặt ({{ tongSoLuong }})
+      </button>
+      <button
+        nbButton
+        status="danger"
+        class="buttontt"
+        (click)="onClickThanhToan()"
+      >
+        Thanh toán ({{ tongDon | number: "1.0" }}đ)
+      </button>
+    </div>
+  </div>
+
+  <div class="right-card">
+    <nb-card>
+      <nb-card-header
+        ><div style="display: flex">
+          <div>Món đã đặt</div>
+          <div style="color: red; margin-left: 5px" *ngIf="soBan">
+            bàn số {{ soBan }}
+          </div>
+        </div></nb-card-header
+      >
+      <ngx-cart-info></ngx-cart-info>
+      <hr size="100%" />
+      <div class="div-tinh-tien">
+        <div class="rowTomTat">
+          <div class="itemTomTat1">
+            <p>Tổng tiền:</p>
+          </div>
+          <div class="itemTomTat2">
+            <p>{{ tongTienHang | number: "1.0" }}đ</p>
+          </div>
+        </div>
+        <div class="rowTomTat">
+          <div class="itemTomTat1" id="chietKhau">
+            <p>CK:</p>
+          </div>
+          <div class="itemTomTat2">
+            <input nbInput #ck placeholder="0" type="number" />
+            %
+          </div>
+        </div>
+        <div class="rowTomTat" id="tongDon">
+          <div class="itemTomTat1">
+            <p>Tổng đơn: {{ tongSoLuong }}</p>
+          </div>
+          <div class="itemTomTat2">
+            <p>{{ tongDon | number: "1.0" }}đ</p>
+          </div>
+        </div>
+      </div>
+    </nb-card>
+    <button
+      class="btnThanhToan"
+      nbButton
+      fullWidth
+      status="danger"
+      size="large"
+      (click)="onClickThanhToan()"
+    >
+      Thanh toán <nb-icon icon="shopping-cart-outline"></nb-icon>
+    </button>
+  </div>
+</div>

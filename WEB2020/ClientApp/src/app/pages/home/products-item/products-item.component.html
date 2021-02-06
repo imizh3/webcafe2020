@@ -1,0 +1,39 @@
+<div class="row" style="padding-top: 5px">
+  <div class="col-md-5 col-sm-5 col-lg-5 col-xs-12">
+    <nb-user
+      [name]="product.tendaydu"
+      title="{{ product.masieuthi }} - {{
+        product.giabanlecovat | number: '1.0'
+      }}đ"
+      picture="{{ baseUrl }}/{{ getImage(product.masieuthi) }}"
+      size="giant"
+      shape="rectangle"
+    >
+    </nb-user>
+    <a style="color: red; font-style: italic; font-weight: 300">
+      {{ dienGiaiKhuyenMai }}</a
+    >
+  </div>
+  <div class="col-12 col-md-7 col-sm-7 col-lg-7 col-xs-12">
+    <div class="row">
+      <div class="col-7 col-md-7 col-sm-7 col-xs-7">
+        <ngx-quantity (save)="updateSL($event)" [sl]="soluong"></ngx-quantity>
+      </div>
+      <div class="col-5 col-md-5 col-sm-5 col-xs-5">
+        <div class="btn-addtocart">
+          <button
+            nbButton
+            fullWidth
+            size="medium"
+            status="danger"
+            #btnAddtocart
+            (click)="AddToCart()"
+          >
+            Chọn
+            <nb-icon icon="plus-circle-outline"></nb-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

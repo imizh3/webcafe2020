@@ -1,0 +1,29 @@
+@import "../../../@theme/styles/themes";
+@include nb-install-component() {
+  height: calc(100vh - 6.5rem - 3.5rem - 249px);
+  overflow: auto;
+  width: 100%;
+  .btn-addtocart {
+    margin-top: 0.5rem;
+  }
+
+  .field-soluong {
+    display: flex;
+  }
+  .ngancach {
+    margin: auto;
+  }
+  input {
+    text-align: center;
+    padding: 0.1875rem 0.1875rem;
+  }
+  .row-item {
+    padding: 5px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .row {
+    align-items: center;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

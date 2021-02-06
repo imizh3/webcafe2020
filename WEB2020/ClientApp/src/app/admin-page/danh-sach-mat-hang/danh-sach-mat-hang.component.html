@@ -1,0 +1,31 @@
+<nb-card>
+  <nb-card-header> Danh sách mặt hàng</nb-card-header>
+  <nb-card-body>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Tên mặt hàng</th>
+          <th>Giá bán</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let item of products; index as i">
+        <tr>
+          <td>{{ i + 1 }}</td>
+          <td>
+            <nb-user
+              [name]="item.tendaydu"
+              [title]="item.masieuthi"
+              [showInitials]="false"
+              (click)="btnChiTietMatHang(item.masieuthi)"
+              picture="{{ baseUrl }}/{{ getImage(item.masieuthi) }}"
+              size="giant"
+              shape="rectangle"
+            ></nb-user>
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </nb-card-body>
+</nb-card>

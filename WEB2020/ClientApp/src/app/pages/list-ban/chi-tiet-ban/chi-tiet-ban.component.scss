@@ -1,0 +1,84 @@
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "~@nebular/theme/styles/global/breakpoints";
+@import "../../../@theme/styles/themes";
+@include nb-install-component() {
+  .chi-tiet-container {
+    display: block;
+    width: 100%;
+    overflow: auto;
+  }
+  .left-card {
+    width: 50%;
+    float: left;
+  }
+  .div-button {
+    display: none;
+  }
+  .right-card {
+    width: 49%;
+    float: right;
+  }
+
+  .itemTomTat1 {
+    width: 40%;
+    margin: auto;
+  }
+  #chietKhau {
+    position: relative;
+  }
+  #chietKhau {
+    p {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+  }
+  .itemTomTat2 {
+    width: 60%;
+    text-align: right;
+    p {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+    input {
+      width: 70px;
+    }
+  }
+  .rowTomTat {
+    display: flex;
+    justify-content: center;
+  }
+  #tongDon {
+    p {
+      color: red;
+      font-size: 1.3rem;
+      font-weight: 900;
+    }
+  }
+  .div-tinh-tien {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  @include media-breakpoint-down(lg) {
+    .right-card {
+      display: none;
+    }
+    .left-card {
+      width: 100%;
+    }
+    .div-button {
+      display: inline-flex;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100vw;
+      .buttontt {
+        width: 50%;
+        height: 50px;
+      }
+    }
+    ::ng-deep [nbButton].shape-rectangle {
+      border-radius: 0rem;
+    }
+  }
+}

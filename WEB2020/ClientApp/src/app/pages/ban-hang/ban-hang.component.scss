@@ -1,0 +1,167 @@
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "~@nebular/theme/styles/global/breakpoints";
+@import "../../@theme/styles/themes";
+@include nb-install-component() {
+  .thu-ngan-container {
+    display: block;
+    width: 100%;
+    overflow: auto;
+  }
+  .left-card {
+    width: 50%;
+    float: left;
+  }
+  .right-card {
+    width: 50%;
+    float: right;
+  }
+  .itemTomTat1 {
+    width: 40%;
+    margin: auto;
+  }
+  #chietKhau {
+    position: relative;
+  }
+  #chietKhau {
+    p {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+  }
+  .itemTomTat2 {
+    width: 60%;
+    text-align: right;
+    p {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+    input {
+      width: 80%;
+      text-align: right;
+    }
+  }
+  .rowTomTat {
+    display: flex;
+    justify-content: center;
+    p {
+      margin: auto;
+      font-size: 0.8rem;
+    }
+  }
+  #tongDon {
+    p {
+      color: red;
+      font-size: 0.9rem;
+      font-weight: 900;
+    }
+  }
+  .div-tinh-tien {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+  .list-ban {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .ban {
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+  }
+
+  .btn-bar#desktop {
+    display: none;
+  }
+
+  .div-loc-mat-hang {
+    display: flex;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    text-align: center;
+    width: 100%;
+  }
+  #tho-thut {
+    background-color: #eeeeee;
+    margin: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: calc(100vh - 6.5rem - 3.5rem);
+    text-align: center;
+  }
+  hr {
+    margin-top: 0.35rem;
+    margin-bottom: 0.35rem;
+  }
+  @include media-breakpoint-down(sm) {
+    #tho-thut {
+      background-color: #eeeeee;
+      margin: 5px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      height: calc(100vh - 6.5rem - 6rem);
+      text-align: center;
+    }
+    .left-card {
+      left: 0;
+      width: 100vw;
+      position: absolute;
+      z-index: 900;
+      .btn-bar {
+        display: none;
+      }
+      ::ng-deep nb-card nb-card-header {
+        padding: 0;
+      }
+    }
+    .right-card {
+      width: 100%;
+    }
+    .ban {
+      width: 57px;
+      margin: 8px;
+      text-align: center;
+      line-height: 33px;
+    }
+    .btn-bar#desktop {
+      display: unset;
+    }
+  }
+
+  ::ng-deep nb-tab[tabTitle="Thực đơn"] {
+    padding: 0.1rem 0rem;
+  }
+  ::ng-deep nb-card-body {
+    padding: 0;
+  }
+
+  ::ng-deep nb-card {
+    margin-bottom: 0rem;
+    font-size: 0.8rem;
+  }
+  ::ng-deep nb-select {
+    margin-left: 2%;
+    width: 35%;
+  }
+  ::ng-deep [nbInput].size-medium {
+    padding: 0;
+  }
+  .div-loc-mat-hang {
+    ::ng-deep [nbInput].size-medium {
+      padding-left: 1rem;
+    }
+    // ::ng-deep nb-form-field-suffix-medium {
+    //   margin-left: calc(2.5rem * -1.5);
+    // }
+    ::ng-deep nb-form-field {
+      width: 65%;
+    }
+  }
+  #tho-thut {
+    ::ng-deep nb-card-header {
+      padding: 0;
+    }
+  }
+}

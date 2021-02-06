@@ -1,0 +1,15 @@
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "~@nebular/theme/styles/global/breakpoints";
+@import "../../@theme/styles/themes";
+@include nb-install-component() {
+  @include media-breakpoint-down(lg) {
+    ::ng-deep nb-card nb-list {
+      padding-bottom: 40px;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    ::ng-deep nb-list-item {
+      padding: 0;
+    }
+  }
+}

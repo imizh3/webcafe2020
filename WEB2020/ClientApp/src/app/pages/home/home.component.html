@@ -1,0 +1,14 @@
+<!-- <ngx-products-list [productlist]="product$ | async"></ngx-products-list> -->
+<nb-list
+  nbInfiniteList
+  [threshold]="500"
+  (bottomThreshold)="loadNext(data)"
+  *ngIf="data.products.length > 0; else noData"
+>
+  <nb-list-item *ngFor="let productitem of data.products">
+    <ngx-products-item [product]="productitem"></ngx-products-item>
+  </nb-list-item>
+</nb-list>
+<ng-template #noData>
+  <p>Không có mặt hàng nào !</p>
+</ng-template>

@@ -1,0 +1,176 @@
+<div class="thu-ngan-container">
+  <div class="btn-bar" id="desktop">
+    <nb-card>
+      <nb-card-body>
+        <nb-actions size="large" fullWidth>
+          <nb-action
+            title="chọn bàn"
+            nbButton
+            (click)="onClickAction('BAN')"
+            [ngStyle]="{
+              'box-shadow': showListBan ? 'inset 0 0 10px #0002' : 'none'
+            }"
+          >
+            <span>Chọn Bàn</span>
+          </nb-action>
+          <nb-action
+            title="thực đơn"
+            nbButton
+            (click)="onClickAction('THUCDON')"
+            [ngStyle]="{
+              'box-shadow': showThucdon ? 'inset 0 0 10px #0002' : 'none'
+            }"
+          >
+            <span>Thực đơn</span>
+          </nb-action>
+        </nb-actions>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="left-card">
+    <div class="btn-bar">
+      <nb-card>
+        <nb-card-body>
+          <nb-actions size="large" fullWidth>
+            <nb-action
+              title="chọn bàn"
+              nbButton
+              (click)="onClickAction('BAN')"
+              [ngStyle]="{
+                'box-shadow': showListBan ? 'inset 0 0 10px #0002' : 'none'
+              }"
+            >
+              <span>Chọn bàn</span>
+            </nb-action>
+            <nb-action
+              title="thực đơn"
+              nbButton
+              (click)="onClickAction('THUCDON')"
+              [ngStyle]="{
+                'box-shadow': showThucdon ? 'inset 0 0 10px #0002' : 'none'
+              }"
+            >
+              <span>Thực đơn</span>
+            </nb-action>
+          </nb-actions>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <nb-card *ngIf="showListBan" id="tho-thut">
+      <nb-card-body>
+        <div class="list-ban">
+          <div *ngFor="let ban of bans; index as i">
+            <button
+              nbButton
+              status="basic"
+              [ngStyle]="{ backgroundColor: ban.trangThai }"
+              class="ban"
+              (click)="onClickBan(ban.ma)"
+            >
+              {{ ban.ma }}
+            </button>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+    <nb-card *ngIf="showThucdon" id="tho-thut">
+      <nb-card-header>
+        <div class="div-loc-mat-hang">
+          <nb-form-field>
+            <input
+              (keyup)="onInputChange($event.target.value)"
+              nbInput
+              shape="round"
+              type="text"
+              placeholder="Tìm món"
+              class="form-control"
+            />
+
+            <nb-icon nbSuffix icon="search-outline"> </nb-icon>
+          </nb-form-field>
+          <nb-select placeholder="Nhóm" size="medium" shape="round" fullWidth>
+            <nb-option (click)="onTatCa()">Tất cả</nb-option>
+            <!-- <nb-option-group title="ĐỒ ĂN NHANH"></nb-option-group>
+            <nb-option-group title="ĐỒ UỐNG">
+              <nb-option
+                value="nhom.ma"
+                *ngFor="let nhom of listNhom"
+                (click)="onChonNhom('A', nhom.ma)"
+                >{{ nhom.ten }}</nb-option
+              >
+            </nb-option-group> -->
+            <nb-option-group
+              [title]="nganh.ten"
+              *ngFor="let nganh of listNganh"
+            >
+              <nb-option
+                value="nhom.ma"
+                *ngFor="let nhom of getNhom(nganh.ma)"
+                (click)="onChonNhom(nganh.ma, nhom.ma)"
+                >{{ nhom.ten }}</nb-option
+              >
+            </nb-option-group>
+          </nb-select>
+        </div>
+      </nb-card-header>
+      <nb-card-body>
+        <ngx-home></ngx-home>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="right-card">
+    <nb-card>
+      <nb-card-header
+        ><div style="display: flex">
+          <div>Món đã đặt</div>
+          <div style="color: red; margin-left: 5px" *ngIf="soBan">
+            bàn {{ soBan }}
+          </div>
+        </div></nb-card-header
+      >
+      <ngx-cart-info></ngx-cart-info>
+    </nb-card>
+    <div style="margin-top: 5px">
+      <div class="div-tinh-tien">
+        <!-- <div class="rowTomTat">
+          <div class="itemTomTat1">
+            <p>Tổng tiền:</p>
+          </div>
+          <div class="itemTomTat2">
+            <p>{{ tongTienHang | number: "1.0" }}đ</p>
+          </div>
+        </div>
+        <hr /> -->
+        <!-- <div class="rowTomTat">
+          <div class="itemTomTat1" id="chietKhau">
+            <p>CK:</p>
+          </div>
+          <div class="itemTomTat2">
+            <input nbInput #ck placeholder="0" type="number" />
+            %
+          </div>
+        </div>
+        <hr /> -->
+        <div class="rowTomTat" id="tongDon">
+          <div class="itemTomTat1">
+            <p>Tổng đơn:</p>
+          </div>
+          <div class="itemTomTat2">
+            <p>{{ tongDon | number: "1.0" }}đ</p>
+          </div>
+        </div>
+        <hr />
+      </div>
+      <button
+        class="btnThanhToan"
+        nbButton
+        fullWidth
+        status="danger"
+        size="large"
+        (click)="onClickThanhToan()"
+      >
+        Gửi đơn <nb-icon icon="arrow-right-outline"></nb-icon>
+      </button>
+    </div>
+  </div>
+</div>

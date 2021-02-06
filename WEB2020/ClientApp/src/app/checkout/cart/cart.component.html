@@ -1,0 +1,67 @@
+<div class="cart-container">
+  <nb-card class="left-card">
+    <nb-card-header>Món đã đặt</nb-card-header>
+    <ngx-cart-info></ngx-cart-info>
+  </nb-card>
+  <div class="right-card">
+    <nb-card class="card-tom-tat">
+      <nb-card-header id="card-header">Tóm tắt đơn hàng</nb-card-header>
+      <nb-card-body id="card-body">
+        <div>
+          <div class="rowTomTat">
+            <div class="itemTomTat1">
+              <p>Tổng tiền hàng:</p>
+            </div>
+            <div class="itemTomTat2">
+              <p>{{ tongTienHang | number: "1.0" }} đ</p>
+            </div>
+          </div>
+          <div class="rowTomTat">
+            <div class="itemTomTat1">
+              <p>Tiền chiết khấu:</p>
+            </div>
+            <div class="itemTomTat2">
+              <p>{{ tienChietKhau | number: "1.0" }} đ</p>
+            </div>
+          </div>
+          <div class="rowTomTat">
+            <div class="itemTomTat1" id="chietKhau">
+              <p>CK trên đơn:</p>
+            </div>
+            <div class="itemTomTat2">
+              <input
+                nbInput
+                #ck
+                placeholder="0"
+                type="number"
+                (keyup.enter)="updateCk(ck.value)"
+                (blur)="updateCk(ck.value)"
+                (keyup)="updateCk(ck.value)"
+              />
+              %
+            </div>
+          </div>
+          <hr size="100%" />
+          <div class="rowTomTat" id="tongDon">
+            <div class="itemTomTat1">
+              <p>Tổng đơn:</p>
+            </div>
+            <div class="itemTomTat2">
+              <p>{{ tongDon | number: "1.0" }} đ</p>
+            </div>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+    <button
+      class="btnThanhToan"
+      nbButton
+      fullWidth
+      status="danger"
+      size="large"
+      (click)="btnThanhToanClicked()"
+    >
+      Thanh toán <nb-icon icon="shopping-cart-outline"></nb-icon>
+    </button>
+  </div>
+</div>

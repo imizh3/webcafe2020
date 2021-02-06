@@ -1,0 +1,16 @@
+<nb-card>
+  <nb-card-header> Danh sách bàn </nb-card-header>
+  <nb-card-body>
+    <div>
+      <p>Số bàn hoạt động</p>
+      <p>Số bàn trống</p>
+    </div>
+    <div class="list-ban">
+      <div *ngFor="let ban of bans; index as i">
+        <button nbButton status="basic" class="ban" (click)="onClickBan(i + 1)">
+          {{ i + 1 }}
+        </button>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
